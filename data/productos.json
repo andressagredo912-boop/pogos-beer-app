@@ -1,0 +1,177 @@
+[
+    {
+        "id": 1,
+        "nombre": "Salchipapa de Pollo",
+        "precio": 9000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 2,
+        "nombre": "Salchipapa de Carne",
+        "precio": 9000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 3,
+        "nombre": "Salchipapa Mixta",
+        "precio": 10000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 4,
+        "nombre": "Salchipapa Especial",
+        "precio": 15000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 5,
+        "nombre": "Adición de Maíz Tierno",
+        "precio": 3000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 6,
+        "nombre": "Adición de Tocineta",
+        "precio": 4000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 7,
+        "nombre": "Adición de Carne",
+        "precio": 5000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 8,
+        "nombre": "Adición de Pollo",
+        "precio": 5000,
+        "disponible": true,
+        "categoria": "Salchipapa"
+    },
+    {
+        "id": 9,
+        "nombre": "Postobon 1.5 L",
+        "precio": 5500,
+        "disponible": true,
+        "categoria": "Bebida"
+    },
+    {
+        "id": 10,
+        "nombre": "Coca-cola personal",
+        "precio": 2500,
+        "disponible": true,
+        "categoria": "Bebida"
+    },
+    {
+        "id": 11,
+        "nombre": "Bretaña Personal",
+        "precio": 3500,
+        "disponible": true,
+        "categoria": "Bebida"
+    },
+    {
+        "id": 12,
+        "nombre": "Cerveza Poker",
+        "precio": 4500,
+        "disponible": true,
+        "categoria": "Cerveza"
+    },
+    {
+        "id": 13,
+        "nombre": "Budweiser",
+        "precio": 4000,
+        "disponible": true,
+        "categoria": "Cerveza"
+    },
+    {
+        "id": 14,
+        "nombre": "Club Colombia",
+        "precio": 6000,
+        "disponible": true,
+        "categoria": "Cerveza"
+    },
+    {
+        "id": 15,
+        "nombre": "Michesoda",
+        "precio": 8000,
+        "disponible": true,
+        "categoria": "Michelada"
+    },
+    {
+        "id": 16,
+        "nombre": "Soda Italiana",
+        "precio": 10000,
+        "disponible": true,
+        "categoria": "Michelada"
+    },
+    {
+        "id": 17,
+        "nombre": "Michelada Tradicional",
+        "precio": 10000,
+        "disponible": true,
+        "categoria": "Michelada"
+    },
+    {
+        "id": 18,
+        "nombre": "Michelada Frutal",
+        "precio": 13000,
+        "disponible": true,
+        "categoria": "Michelada"
+    },
+    {
+        "id": 19,
+        "nombre": "Michelada Tradicional 2x1",
+        "precio": 10000,
+        "disponible": true,
+        "categoria": "Michelada"
+    },
+    {
+        "id": 20,
+        "nombre": "Copa de Vino",
+        "precio": 6000,
+        "disponible": true,
+        "categoria": "Shots y Cocteles"
+    },
+    {
+        "id": 21,
+        "nombre": "Shot de aguardiente",
+        "precio": 2000,
+        "disponible": true,
+        "categoria": "Shots y Cocteles"
+    },
+    {
+        "id": 22,
+        "nombre": "Shot de Ron",
+        "precio": 2000,
+        "disponible": true,
+        "categoria": "Shots y Cocteles"
+    },
+    {
+        "id": 23,
+        "nombre": "Cocaina Rusa",
+        "precio": 8000,
+        "disponible": true,
+        "categoria": "Shots y Cocteles"
+    },
+    {
+        "id": 24,
+        "nombre": "Lyche Martini",
+        "precio": 12000,
+        "disponible": true,
+        "categoria": "Shots y Cocteles"
+    },
+    {
+        "id": 25,
+        "nombre": "Helado Pogos",
+        "precio": 5000,
+        "disponible": true,
+        "categoria": "Helados y Postres"
+    }
+]
