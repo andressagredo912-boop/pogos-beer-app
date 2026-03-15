@@ -163,9 +163,31 @@ def mostrar_contabilidad():
                 st.error(f"Error al generar el PDF: {e}")
 
         with col_reset:
-            st.warning("⚠️ El reseteo borrará los datos actuales.")
-            if st.button("🔴 RESETEAR JORNADA (NUEVA FECHA)", use_container_width=True):
-                resetear_bases_de_datos()
+            st.warning("⚠️ Acción irreversible")
+            
+            # Inicializamos el estado de confirmación si no existe
+            if 'confirmar_reset' not in st.session_state:
+                st.session_state.confirmar_reset = False
+
+            if not st.session_state.confirmar_reset:
+                # Primer botón: Activa el estado de confirmación
+                if st.button("🔴 RESETEAR JORNADA", use_container_width=True):
+                    st.session_state.confirmar_reset = True
+                    st.rerun()
+            else:
+                # Interfaz de confirmación
+                st.error("¿Estás seguro? Se borrarán los datos actuales.")
+                col_si, col_no = st.columns(2)
+                
+                with col_si:
+                    if st.button("SÍ, BORRAR TODO", type="primary", use_container_width=True):
+                        st.session_state.confirmar_reset = False # Limpiamos el estado
+                        resetear_bases_de_datos()
+                
+                with col_no:
+                    if st.button("CANCELAR", use_container_width=True):
+                        st.session_state.confirmar_reset = False
+                        st.rerun()
 
 def registrar_transaccion(tipo, concepto, detalle, cantidad, total):
     datos = cargar_contabilidad()
