@@ -59,54 +59,57 @@ def set_styles(image_file):
     st.markdown(f"""
         <style>
         {bg_style}
-        /* Nombre del producto - Aumentado a 36px */
+        
+        .producto-container {{
+            margin-bottom: 35px !important;
+            padding: 10px 0 !important;
+        }}
+
         .item-nombre {{ 
-            font-family: 'Roboto Condensed', sans-serif; 
-            font-size: 36px; 
-            font-weight: 700; 
-            color: white; 
-            margin-bottom: 5px; 
-            line-height: 1.1;
+            font-family: 'Roboto Condensed', sans-serif !important; 
+            font-size: 45px !important; 
+            font-weight: 800 !important; 
+            color: #ffffff !important; 
+            line-height: 1.1 !important;
+            display: block !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
         }}
         
-        /* Precio - Aumentado a 42px para que resalte */
         .item-precio {{ 
-            font-family: 'Bebas Neue', cursive; 
-            color: #E6B325; 
-            font-size: 42px; 
-            text-align: right; 
-            font-weight: bold;
+            font-family: 'Bebas Neue', cursive !important; 
+            color: #E6B325 !important; 
+            font-size: 52px !important; 
+            text-align: right !important; 
+            font-weight: bold !important;
+            line-height: 1 !important;
         }}
         
-        /* Descripción - Aumentado a 20px y más clara */
         .item-descripcion {{ 
-            color: #dddddd; 
-            font-style: italic; 
-            font-size: 20px; 
-            margin-top: -5px; 
-            line-height: 1.3; 
-            margin-bottom: 10px;
+            color: #dddddd !important; 
+            font-style: italic !important; 
+            font-size: 26px !important; 
+            margin-top: 5px !important; 
+            line-height: 1.2 !important;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
         }}
         
-        /* Encabezados de Categoría - Aumentado a 50px */
         .categoria-header {{ 
-            font-family: 'Bebas Neue', cursive; 
-            color: #E6B325; 
-            font-size: 50px; 
-            border-bottom: 3px solid #E6B325; 
-            margin: 40px 0 20px 0; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-family: 'Bebas Neue', cursive !important; 
+            color: #E6B325 !important; 
+            font-size: 65px !important; 
+            border-bottom: 5px solid #E6B325 !important; 
+            margin: 50px 0 30px 0 !important; 
+            text-transform: uppercase !important;
+            letter-spacing: 3px !important;
         }}
         
-        /* Título Principal MENÚ */
         .titulo-menu {{ 
-            font-family: 'Bebas Neue', cursive; 
-            color: white; 
-            font-size: 80px; 
-            text-align: center; 
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 5px rgba(0,0,0,0.8);
+            font-family: 'Bebas Neue', cursive !important; 
+            color: white !important; 
+            font-size: 90px !important; 
+            text-align: center !important; 
+            margin-bottom: 30px !important;
+            text-shadow: 4px 4px 6px rgba(0,0,0,0.9) !important;
         }}
         </style>
     """, unsafe_allow_html=True)
@@ -116,14 +119,12 @@ def mostrar_menu(rol_usuario="cliente"):
     set_styles(PATHS["assets"])
     productos, categorias_orden = cargar_datos()
     
-    st.markdown('<p class="titulo-menu">MENÚ</p>', unsafe_allow_html=True)
+    st.markdown('<div class="titulo-menu">MENÚ</div>', unsafe_allow_html=True)
 
-    # Si es ADMIN, mostramos primero la sección de GESTIÓN
     if rol_usuario == "admin":
         gestionar_inventario()
         st.divider()
 
-    # Mostrar el cuerpo del menú para todos
     if not productos:
         st.warning("No se encontraron productos.")
         return
@@ -131,27 +132,26 @@ def mostrar_menu(rol_usuario="cliente"):
     for categoria in categorias_orden:
         items_cat = [p for p in productos if p.get("categoria") == categoria]
         
-        # Filtro de visibilidad para el cliente
         if rol_usuario == "cliente":
             items_cat = [i for i in items_cat if i.get("disponible", True)]
         
         if not items_cat: continue
 
-        st.markdown(f'<p class="categoria-header">{categoria}</p>', unsafe_allow_html=True)
+        st.markdown(f'<div class="categoria-header">{categoria}</div>', unsafe_allow_html=True)
         
         for item in items_cat:
+            st.markdown('<div class="producto-container">', unsafe_allow_html=True)
+            
             col_info, col_precio = st.columns([3, 1])
             with col_info:
-                # Etiqueta de oculto solo visible para Mesero y Admin
-                oculto_tag = " 🚫 *(Oculto)*" if not item.get("disponible", True) and rol_usuario != "cliente" else ""
-                st.markdown(f'<p class="item-nombre">{item["nombre"]}{oculto_tag}</p>', unsafe_allow_html=True)
+                oculto_tag = " 🚫" if not item.get("disponible", True) and rol_usuario != "cliente" else ""
+                st.markdown(f'<div class="item-nombre">{item["nombre"]}{oculto_tag}</div>', unsafe_allow_html=True)
                 if item.get("desc"):
-                    st.markdown(f'<p class="item-descripcion">{item["desc"]}</p>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="item-descripcion">{item["desc"]}</div>', unsafe_allow_html=True)
             
             with col_precio:
-                st.markdown(f'<p class="item-precio">${item["precio"]:,}</p>', unsafe_allow_html=True)
+                st.markdown(f'<div class="item-precio">${item["precio"]:,}</div>', unsafe_allow_html=True)
 
-            # Mesero y Admin pueden cambiar disponibilidad
             if rol_usuario in ["mesero", "admin"]:
                 current_state = item.get("disponible", True)
                 if st.toggle("Disponible", value=current_state, key=f"tgl_{item['id']}") != current_state:
@@ -159,11 +159,10 @@ def mostrar_menu(rol_usuario="cliente"):
                     guardar_todo(productos, categorias_orden)
                     st.rerun()
             
-            st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
 # --- GESTIÓN (EXCLUSIVO ADMIN) ---
 def gestionar_inventario():
-    # Esta función se llama dentro de mostrar_menu si el rol es admin
     productos, categorias_orden = cargar_datos()
 
     with st.expander("🛠️ PANEL DE ADMINISTRACIÓN (Categorías y Productos)"):
