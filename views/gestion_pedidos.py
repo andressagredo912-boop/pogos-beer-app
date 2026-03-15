@@ -63,7 +63,7 @@ def guardar_pedidos(pedidos_actuales):
 # --- VISTAS ---
 
 def mostrar_gestion_pedidos():
-    st.markdown('<p class="main-header">📋 GESTIÓN DE PEDIDOS</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:\'Bebas Neue\'; font-size: 42px; color: #E6B325; text-align: center;">📋 GESTIÓN DE PEDIDOS</p>', unsafe_allow_html=True)
     
     pedidos_hoy = cargar_pedidos_hoy()
     pedidos_activos = [p for p in pedidos_hoy if p.get('estado') != 'Pagado']
@@ -107,8 +107,8 @@ def renderizar_lista(pedidos_activos, todos_los_pedidos_hoy):
             st.markdown(f"""
                 <div style="background: rgba(255, 255, 255, 0.05); border-left: 5px solid #E6B325; padding: 15px; border-radius: 8px; margin-bottom: 5px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-family: 'Bebas Neue'; font-size: 24px; color: #E6B325;">👤 {p['cliente']}</span>
-                        <span style="font-family: 'Bebas Neue'; font-size: 26px; color: white;">TOTAL: ${p['total']:,}</span>
+                        <span style="font-family: 'Bebas Neue'; font-size: 20px; color: #E6B325;">👤 {p['cliente'].upper()}</span>
+                        <span style="font-family: 'Bebas Neue'; font-size: 22px; color: white;">TOTAL: ${p['total']:,}</span>
                     </div>
                 </div>
             """, unsafe_allow_html=True)
@@ -125,7 +125,7 @@ def renderizar_formulario(pedidos_hoy):
         st.session_state.vista = "lista"
         st.rerun()
 
-    st.markdown('<p class="categoria-header">Detalle de Comanda</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-family:\'Bebas Neue\'; font-size: 28px; color: #E6B325; border-bottom: 2px solid rgba(230,179,37,0.3);">DETALLE DEL PEDIDO</p>', unsafe_allow_html=True)
     p['cliente'] = st.text_input("NOMBRE DEL CLIENTE O MESA", value=p.get('cliente', ""))
 
     # --- CARGA DINÁMICA DE PRODUCTOS ---
@@ -138,13 +138,12 @@ def renderizar_formulario(pedidos_hoy):
     
     categorias = [c for c in categorias_config if c in cats_con_stock] + [c for c in cats_con_stock if c not in categorias_config]
 
-    st.markdown('<p style="font-family:\'Bebas Neue\'; font-size:25px; color:#E6B325; margin-top:20px;">🛒 PRODUCTOS</p>', unsafe_allow_html=True)
-    
+    st.markdown('<p style="font-family:\'Bebas Neue\'; font-size: 24px; color: #E6B325; margin-top: 20px;">🛒 PRODUCTOS</p>', unsafe_allow_html=True)
+
     # Encabezados
     h = st.columns([0.5, 1.5, 2.5, 1, 0.8, 1, 0.5])
     for col, txt in zip(h, ["#", "CATEGORÍA", "PRODUCTO", "PRECIO", "CANT.", "SUBTOTAL", ""]):
-        col.markdown(f'<p style="font-family:\'Bebas Neue\'; font-size:16px; color:#888;">{txt}</p>', unsafe_allow_html=True)
-
+        col.markdown(f'<p style="font-family:\'Bebas Neue\'; font-size: 13px; color: #888;">{txt}</p>', unsafe_allow_html=True)
     items_actuales = p.get('items', [])
     total_acc = 0
     indices_a_eliminar = []
@@ -208,7 +207,7 @@ def renderizar_formulario(pedidos_hoy):
                 
                 subtotal = precio * cant
                 item['subtotal'] = subtotal
-                c[5].markdown(f'<p style="color:#E6B325; font-weight:bold;">${subtotal:,}</p>', unsafe_allow_html=True)
+                c[5].markdown(f'<p style="color:#E6B325; font-weight:bold; font-size: 18px; padding-top:10px;">${subtotal:,}</p>', unsafe_allow_html=True)
                 total_acc += subtotal
         else:
             # Si está en "Seleccione...", el subtotal es 0 o mantiene el anterior pero no suma
@@ -239,7 +238,7 @@ def renderizar_formulario(pedidos_hoy):
                 st.rerun()
 
     st.markdown("---")
-    st.markdown(f'<h2 style="text-align:right; font-family:\'Bebas Neue\'; color:#E6B325;">TOTAL: ${total_acc:,}</h2>', unsafe_allow_html=True)
+    st.markdown(f'<h2 style="text-align:right; font-family:\'Bebas Neue\'; color:#E6B325; font-size: 32px;">TOTAL: ${total_acc:,}</h2>', unsafe_allow_html=True)
 
     col_save, col_pay = st.columns(2)
     with col_save:
