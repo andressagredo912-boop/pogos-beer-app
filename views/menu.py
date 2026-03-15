@@ -67,7 +67,7 @@ def set_styles(image_file):
 
         .item-nombre {{ 
             font-family: 'Roboto Condensed', sans-serif !important; 
-            font-size: 28px !important; /* Punto medio perfecto */
+            font-size: 24px !important; /* Punto medio perfecto */
             font-weight: 700 !important; 
             color: #ffffff !important; 
             line-height: 1.1 !important;
@@ -78,7 +78,7 @@ def set_styles(image_file):
         .item-precio {{ 
             font-family: 'Bebas Neue', cursive !important; 
             color: #E6B325 !important; 
-            font-size: 32px !important; /* Resalta sin exagerar */
+            font-size: 26px !important; /* Resalta sin exagerar */
             text-align: right !important; 
             font-weight: bold !important;
         }}
@@ -86,7 +86,7 @@ def set_styles(image_file):
         .item-descripcion {{ 
             color: #bbbbbb !important; 
             font-style: italic !important; 
-            font-size: 18px !important; /* Legible en móvil */
+            font-size: 14px !important; /* Legible en móvil */
             margin-top: 2px !important; 
             line-height: 1.2 !important;
         }}
@@ -94,7 +94,7 @@ def set_styles(image_file):
         .categoria-header {{ 
             font-family: 'Bebas Neue', cursive !important; 
             color: #E6B325 !important; 
-            font-size: 42px !important; 
+            font-size: 36px !important; 
             border-bottom: 3px solid #E6B325 !important; 
             margin: 35px 0 20px 0 !important; 
             text-transform: uppercase !important;
@@ -103,7 +103,7 @@ def set_styles(image_file):
         .titulo-menu {{ 
             font-family: 'Bebas Neue', cursive !important; 
             color: white !important; 
-            font-size: 65px !important; 
+            font-size: 55px !important; 
             text-align: center !important; 
             margin-bottom: 20px !important;
             text-shadow: 3px 3px 5px rgba(0,0,0,0.9) !important;
