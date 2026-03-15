@@ -34,8 +34,8 @@ def login():
         password = st.text_input("Contraseña", type="password")
         if st.form_submit_button("Entrar"):
             creds = {
-                "admin": {"pass": "123", "role": "admin"},
-                "Pepito Perez": {"pass": "cerveza123", "role": "mesero"}
+                "admin": {"pass": "123456", "role": "admin"},
+                "danielam11": {"pass": "991211", "role": "mesero"}
             }
             if user in creds and creds[user]["pass"] == password:
                 st.session_state.logged_in = True
