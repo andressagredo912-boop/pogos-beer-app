@@ -61,14 +61,14 @@ def set_styles(image_file):
         {bg_style}
         
         .producto-container {{
-            margin-bottom: 35px !important;
-            padding: 10px 0 !important;
+            margin-bottom: 20px !important;
+            padding: 5px 0 !important;
         }}
 
         .item-nombre {{ 
             font-family: 'Roboto Condensed', sans-serif !important; 
-            font-size: 45px !important; 
-            font-weight: 800 !important; 
+            font-size: 28px !important; /* Punto medio perfecto */
+            font-weight: 700 !important; 
             color: #ffffff !important; 
             line-height: 1.1 !important;
             display: block !important;
@@ -78,43 +78,40 @@ def set_styles(image_file):
         .item-precio {{ 
             font-family: 'Bebas Neue', cursive !important; 
             color: #E6B325 !important; 
-            font-size: 52px !important; 
+            font-size: 32px !important; /* Resalta sin exagerar */
             text-align: right !important; 
             font-weight: bold !important;
-            line-height: 1 !important;
         }}
         
         .item-descripcion {{ 
-            color: #dddddd !important; 
+            color: #bbbbbb !important; 
             font-style: italic !important; 
-            font-size: 26px !important; 
-            margin-top: 5px !important; 
+            font-size: 18px !important; /* Legible en móvil */
+            margin-top: 2px !important; 
             line-height: 1.2 !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
         }}
         
         .categoria-header {{ 
             font-family: 'Bebas Neue', cursive !important; 
             color: #E6B325 !important; 
-            font-size: 65px !important; 
-            border-bottom: 5px solid #E6B325 !important; 
-            margin: 50px 0 30px 0 !important; 
+            font-size: 42px !important; 
+            border-bottom: 3px solid #E6B325 !important; 
+            margin: 35px 0 20px 0 !important; 
             text-transform: uppercase !important;
-            letter-spacing: 3px !important;
         }}
         
         .titulo-menu {{ 
             font-family: 'Bebas Neue', cursive !important; 
             color: white !important; 
-            font-size: 90px !important; 
+            font-size: 65px !important; 
             text-align: center !important; 
-            margin-bottom: 30px !important;
-            text-shadow: 4px 4px 6px rgba(0,0,0,0.9) !important;
+            margin-bottom: 20px !important;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.9) !important;
         }}
         </style>
     """, unsafe_allow_html=True)
 
-# --- VISTA DEL MENÚ (CLIENTE / MESERO / ADMIN) ---
+# --- VISTA DEL MENÚ ---
 def mostrar_menu(rol_usuario="cliente"):
     set_styles(PATHS["assets"])
     productos, categorias_orden = cargar_datos()
@@ -161,7 +158,7 @@ def mostrar_menu(rol_usuario="cliente"):
             
             st.markdown('</div>', unsafe_allow_html=True)
 
-# --- GESTIÓN (EXCLUSIVO ADMIN) ---
+# --- GESTIÓN (ADMIN) ---
 def gestionar_inventario():
     productos, categorias_orden = cargar_datos()
 
