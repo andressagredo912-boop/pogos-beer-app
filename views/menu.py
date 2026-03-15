@@ -59,11 +59,55 @@ def set_styles(image_file):
     st.markdown(f"""
         <style>
         {bg_style}
-        .item-nombre {{ font-family: 'Roboto Condensed'; font-size: 30px; font-weight: 700; color: white; margin-bottom: 0; }}
-        .item-precio {{ font-family: 'Bebas Neue'; color: #E6B325; font-size: 35px; text-align: right; }}
-        .item-descripcion {{ color: #cccccc; font-style: italic; font-size: 16px; margin-top: -10px; line-height: 1.2; }}
-        .categoria-header {{ font-family: 'Bebas Neue'; color: #E6B325; font-size: 40px; border-bottom: 2px solid #E6B325; margin: 30px 0 15px 0; }}
-        .titulo-menu {{ font-family: 'Bebas Neue'; color: white; font-size: 60px; text-align: center; }}
+        /* Nombre del producto - Aumentado a 36px */
+        .item-nombre {{ 
+            font-family: 'Roboto Condensed', sans-serif; 
+            font-size: 36px; 
+            font-weight: 700; 
+            color: white; 
+            margin-bottom: 5px; 
+            line-height: 1.1;
+        }}
+        
+        /* Precio - Aumentado a 42px para que resalte */
+        .item-precio {{ 
+            font-family: 'Bebas Neue', cursive; 
+            color: #E6B325; 
+            font-size: 42px; 
+            text-align: right; 
+            font-weight: bold;
+        }}
+        
+        /* Descripción - Aumentado a 20px y más clara */
+        .item-descripcion {{ 
+            color: #dddddd; 
+            font-style: italic; 
+            font-size: 20px; 
+            margin-top: -5px; 
+            line-height: 1.3; 
+            margin-bottom: 10px;
+        }}
+        
+        /* Encabezados de Categoría - Aumentado a 50px */
+        .categoria-header {{ 
+            font-family: 'Bebas Neue', cursive; 
+            color: #E6B325; 
+            font-size: 50px; 
+            border-bottom: 3px solid #E6B325; 
+            margin: 40px 0 20px 0; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }}
+        
+        /* Título Principal MENÚ */
+        .titulo-menu {{ 
+            font-family: 'Bebas Neue', cursive; 
+            color: white; 
+            font-size: 80px; 
+            text-align: center; 
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.8);
+        }}
         </style>
     """, unsafe_allow_html=True)
 
