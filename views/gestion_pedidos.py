@@ -242,7 +242,7 @@ def renderizar_formulario(pedidos_hoy):
 
     col_save, col_pay = st.columns(2)
     with col_save:
-        if st.button("💾 GUARDAR COMANDA", use_container_width=True):
+        if st.button("💾 GUARDAR PEDIDO", use_container_width=True):
             p['items'], p['total'] = items_actuales, total_acc
             actualizar_lista_pedidos(pedidos_hoy, p)
             st.session_state.vista = "lista"
