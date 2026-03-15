@@ -28,7 +28,7 @@ st.markdown("""
 
 # --- 4. LÓGICA DE LOGIN ---
 def login():
-    st.markdown("<h1 class='main-header'>🔐 ACCESO PANEL</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='main-header'>🔐 Pogo's app</h1>", unsafe_allow_html=True)
     with st.form("login_form"):
         user = st.text_input("Usuario")
         password = st.text_input("Contraseña", type="password")
