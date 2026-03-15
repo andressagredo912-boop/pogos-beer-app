@@ -98,7 +98,7 @@ def login():
     if os.path.exists(ruta_logo3):
         st.image(Image.open(ruta_logo3), width=300)
 
-    st.markdown("<h1 class='main-header'>🔐 ACCESO PANEL POGO'S</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='main-header'>🔐 ACCESO POGO'S app</h1>", unsafe_allow_html=True)
     
     # Formulario centrado
     col1, col2, col3 = st.columns([1, 2, 1])
